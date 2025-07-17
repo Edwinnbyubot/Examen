@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen - Aplicación MVC</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1><i class="fas fa-graduation-cap"></i> Examen App</h1>
+            <p>Sistema de gestión de exámenes</p>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="dashboard">
+                <h2>Dashboard</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3 id="studentCount">0</h3>
+                        <p>Estudiantes</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-file-alt"></i>
+                        <h3 id="examCount">0</h3>
+                        <p>Exámenes</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-check-circle"></i>
+                        <h3 id="completedCount">0</h3>
+                        <p>Completados</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="form-section">
+                <h2>Agregar Estudiante</h2>
+                <form id="studentForm" class="form">
+                    <div class="form-group">
+                        <label for="studentName">Nombre del Estudiante</label>
+                        <input type="text" id="studentName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="studentEmail">Email</label>
+                        <input type="email" id="studentEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="examScore">Calificación</label>
+                        <input type="number" id="examScore" min="0" max="100" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Agregar Estudiante
+                    </button>
+                </form>
+            </section>
+
+            <section class="data-section">
+                <h2>Lista de Estudiantes</h2>
+                <div id="studentsList" class="students-list">
+                    <!-- Los estudiantes se mostrarán aquí -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Examen App. Desarrollado con patrón MVC.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts MVC -->
+    <script src="assets/js/models/AppModel.js"></script>
+    <script src="assets/js/views/AppView.js"></script>
+    <script src="assets/js/controllers/AppController.js"></script>
+    <script>
+        // Inicializar la aplicación
+        document.addEventListener('DOMContentLoaded', function() {
+            const app = new AppController();
+            app.init();
+        });
+    </script>
+</body>
+</html>
